@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Theme Red  Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background-color: #121212;
+      color: #E0E0E0;
+      line-height: 1.6;
+    }
+  
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 100px;
+      background:#121212;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+  
+    header a {
+      color: #E0E0E0;
+      text-decoration: none;
+      margin: 0 10px;
+      transition: color 0.3s;
+    }
+  
+    header a:hover {
+      color: red;
+    }
+  
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100vh;
+      padding: 0 200px;
+      background: linear-gradient(135deg, #121212, #1A1A1A);
+    }
+  
+    .hero .left {
+      max-width: 50%;
+      margin-bottom: 0px;
+    }
+  
+    .hero .left p, .hero .left h1, .hero .left h2 {
+      margin: 0px ; /* Adjusted spacing */
+    }
+  
+    .hero .left h1 {
+      font-size: 3.5rem;
+      color: #ffffff;
+    }
+  
+    .hero .left p {
+      font-size: 1.5rem;
+      color: #bb86fc6b;
+    }
+  
+    .hero .right img {
+      border-radius: 50%;
+      width: 400px;
+      height: 400px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+  
+    section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+  
+    h1 {
+      font-size: xx-large;
+    }
+  
+    h2 {
+      color: red;
+    }
+
+.skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  text-align: center;
+}
+
+.skills div {
+  background: #1A1A1A;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skills div:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.7);
+}
+
+.skills img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+}
+
+.skills h3 {
+  margin: 10px 0;
+  color: red;
+}
+
+.skills p {
+  color: #E0E0E0;
+  font-size: 0.9rem;
+}
+
+.skills i {
+  font-size: 3rem; /* Adjust the size as needed */
+}
+
+.portfolio {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+  
+.portfolio img {
+    width: 100%;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+  
+.portfolio img:hover {
+    transform: scale(1.05);
+}
+  
+#hobbies {
+  background: #1A1A1A;
+  color: #E0E0E0;
+  padding: 40px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#hobbies h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  color: red;
+}
+
+.hobbies-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.hobby {
+  background: #2A2A2A;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.hobby i {
+  font-size: 3rem;
+  color: red;
+  margin-bottom: 15px;
+}
+
+.hobby h3 {
+  font-size: 1.5rem;
+  color: #E0E0E0;
+  margin-bottom: 10px;
+}
+
+.hobby p {
+  font-size: 1rem;
+  color: #757575;
+  line-height: 1.6;
+}
+
+.hobby:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 768px) {
+  #hobbies h1 {
+    font-size: 2rem;
+  }
+
+  .hobbies-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+    .contact-form {
+      background: #1A1A1A;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+  
+    .contact-form input, .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+      background: #2A2A2A;
+      color: #E0E0E0;
+    }
+  
+    .contact-form button {
+      background: red;
+      color: #121212;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+  
+    .contact-form button:hover {
+      background: red;
+    }
+  
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0D0D0D;
+      color: #757575;
+      margin-top: 40px;
+    }
+  
+    footer a {
+      color: red;
+      text-decoration: none;
+    }
+  </style>
+  
+</head>
+<body>
+
+<header>
+  <h1>PortFolio</h1>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#education">Education</a>
+    <a href="#hobbies">Hobbies</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="left">
+    <p>Welcome to My Universe</p>
+    <h1>Hi, I'm Kunal Chandel</h1>
+    <h2>Software Developer Based in Billawar,J&K</h2>
+  </div>
+  <div class="right">
+    <img id="profileimg" src="images/MyImage.jpg" alt="Your Profile Picture">
+  </div>
+</div>
+
+<section id="about">
+    <h1>About Me</h1>
+    <div style="display: flex; align-items: flex-start; gap: 40px;">
+      <div style="flex: 2;">
+        <h2>Brief Introduction</h2>
+        <p>
+          I am a passionate and dedicated Full-Stack Developer with expertise in creating efficient, user-friendly web applications. With a strong foundation in HTML, CSS, JavaScript, and modern frameworks like React and Node.js, I aim to deliver innovative solutions to complex problems.
+        </p>
+        <p>
+          I have worked on multiple projects, ranging from portfolio websites to dynamic web applications, showcasing my ability to adapt and grow in a constantly evolving tech landscape. My goal is to contribute to impactful projects, continuously improve my skills, and stay at the forefront of emerging technologies.
+        </p>
+        <p>
+          Outside of coding, I enjoy photography, exploring new technologies, and sharing knowledge with the developer community.
+        </p>
+    </div>
+  
+    <div class="education" style="flex: 1; background: #1A1A1A; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);">
+        <h2 style="color: red;">Education</h2>
+        <ul style="list-style-type: none; padding: 0; margin: 0;">
+          <li>
+            <strong>Bachelor of Science in Computer Science</strong>
+            <p>XYZ University, 2024</p>
+          </li>
+          <li>
+            <strong>High School Diploma</strong>
+            <p>ABC High School, 2020</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+</section>
+  
+  
+
+<section id="skills">
+    <h1>Skills</h1>
+    <div class="skills">
+      <div>
+        <i class="fa-brands fa-html5"></i>
+        <h3>HTML</h3>
+        <p>Building the structure of web pages with semantic markup.</p>
+      </div>
+      <div>
+        <i class="fa-brands fa-css3-alt"></i>
+        <h3>CSS</h3>
+        <p>Styling web pages with responsive designs and animations.</p>
+      </div>
+      <div>
+        <i class="fa-brands fa-js"></i>
+        <h3>JavaScript</h3>
+        <p>Creating dynamic and interactive web functionalities.</p>
+      </div>
+      <div>
+        <i class="fa-brands fa-java"></i>
+        <h3>Java</h3>
+        <p>Building scalable and high-performing user interfaces.</p>
+      </div>
+      <div>
+        <i class="fa-brands fa-python"></i>
+        <h3>Pyhton</h3>
+        <p>Developing server-side logic and APIs for web applications.</p>
+      </div>
+    </div>
+  </section>
+
+  
+  <section id="portfolio">
+    <h1>Projects</h1>
+    <div class="portfolio">
+      <!-- Project 1 -->
+      <div class="portfolio-item">
+        <h2> Social Impact Tracker</h2>
+        <img src="https://www.greengeeks.com/blog/wp-content/uploads/2019/10/SEMRUSH.png" alt="Project 1">
+        <p>A Social Impact Tracker is a web or mobile application designed to help organizations, individuals, or communities track and measure the social impact of their activities or initiatives. This can be particularly useful for NGOs, governmental organizations, and businesses looking to assess their contributions to social good.</p>
+      </div>
+  
+      <!-- Project 2 -->
+      <div class="portfolio-item">
+        <h2> Research Details Management</h2>
+        <img src="images/journal.png" alt="Project 2">
+        <p>A Research Management Details System (RMDS) is a platform designed to assist academic institutions, research organizations, and businesses with managing their research projects, resources, and data efficiently.</p>
+      </div>
+  
+      <!-- Project 3 -->
+      <div class="portfolio-item">
+        <h2>Resume Generator</h2>
+        <img src="" alt="Project 3">
+        <p>This Resume Generator project is a user-friendly application designed to create professional resumes quickly. Built with HTML, CSS, and JavaScript, it allows users to input their personal and professional details and generate a well-structured resume in real-time. The key challenges involved designing a clean, responsive interface and ensuring seamless PDF generation across different devices.</p>
+      </div>
+    </div>
+  </section>
+  
+
+
+<section id="hobbies">
+  <h1>My Hobbies</h1>
+  <div class="hobbies-container">
+    <div class="hobby">
+      <i class="fas fa-laptop-code"></i>
+      <h3>Coding and Exploring New Technologies</h3>
+      <p>I love experimenting with new technologies, frameworks, and tools to create innovative solutions and improve my skills.</p>
+    </div>
+    <div class="hobby">
+      <i class="fas fa-book"></i>
+      <h3>Reading Tech Blogs and Science Fiction</h3>
+      <p>I'm passionate about staying updated with the latest trends in tech and diving into fascinating science fiction books.</p>
+    </div>
+    <div class="hobby">
+      <i class="fas fa-camera-retro"></i>
+      <h3>Photography and Digital Art</h3>
+      <p>I enjoy capturing the beauty around me through photography and creating digital art as a form of self-expression.</p>
+    </div>
+    <div class="hobby">
+      <i class="fas fa-plane"></i>
+      <h3>Traveling and Experiencing Different Cultures</h3>
+      <p>Exploring new places and immersing myself in different cultures is a great way to broaden my perspective and grow as a person.</p>
+    </div>
+  </div>
+</section>
+
+
+<section id="contact">
+  <h1>Contact Me</h1>
+  <p>If you prefer to call, you can reach me at: <a href="tel:+91 6005891062">+91 6005891062</a></p>
+  <form class="contact-form" action="http://localhost:3000/send-email" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+</form>
+</section>
+
+
+<footer>
+  <p>&copy; 2024 Kunal | All Rights Reserved | <a href="#">Back to Top</a></p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="script.js">
+</script>
+</body>
+</html>
