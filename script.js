@@ -1,138 +1,129 @@
-// Register ScrollTrigger plugin
-gsap.registerPlugin(ScrollTrigger);
 
-// Initial page load animations
-gsap.from(".hero", {
-    delay: 0.4,
-    opacity: 0,
-    duration: 1,
-    y: 40,
-    ease: "power2.out"  // Added easing for smoother animation
-});
-
-// Header animation - Modified to fade in/out smoothly
-gsap.to("header", {
-    scrollTrigger: {
-        trigger: "#about",
-        scroller: "body",
-        start: "top 60%",
-        end: "top 20%",
-        scrub: true,  // Smooth scrubbing effect
-        toggleActions: "play reverse play reverse"  // Better scroll behavior
-    },
-    opacity: 0,
-    yPercent: -50
-});
-
-// About section animations
-gsap.from("#about h1", {
-    scrollTrigger: {
-        trigger: "#about",
-        start: "top 60%",
-        toggleActions: "play none none reverse"
-    },
-    opacity: 0,
-    y: 30,
-    duration: 0.8
-});
-
-gsap.from("#about div", {
-    scrollTrigger: {
-        trigger: "#about",
-        start: "top 60%",
-        toggleActions: "play none none reverse"
-    },
-    opacity: 0,
-    y: 30,
-    duration: 0.8,
-    stagger: 0.3  // Reduced stagger time for smoother flow
-});
-
-// Skills section animations
-gsap.from("#skills h1", {
-    scrollTrigger: {
-        trigger: "#skills",
-        start: "top 60%",
-        toggleActions: "play none none reverse"
-    },
-    opacity: 0,
-    y: 30,
-    duration: 0.8
-});
-
-gsap.from("#skills .skills div", {  // More specific selector
-    scrollTrigger: {
-        trigger: "#skills",
-        start: "top 60%",
-        toggleActions: "play none none reverse"
-    },
-    opacity: 0,
-    y: 30,
-    duration: 0.8,
-    stagger: 0.2
-});
-
-// Portfolio section animations
-gsap.from("#portfolio h1", {
-    scrollTrigger: {
-        trigger: "#portfolio",
-        start: "top 60%",
-        toggleActions: "play none none reverse"
-    },
-    opacity: 0,
-    y: 30,
-    duration: 0.8
-});
-
-gsap.from("#portfolio .portfolio-item", {  // More specific selector
-    scrollTrigger: {
-        trigger: "#portfolio",
-        start: "top 60%",
-        toggleActions: "play none none reverse"
-    },
-    opacity: 0,
-    y: 30,
-    duration: 0.8,
-    stagger: 0.3
-});
-
-// Hobbies section animations
-gsap.from("#hobbies h1", {
-    scrollTrigger: {
-        trigger: "#hobbies",
-        start: "top 60%",
-        toggleActions: "play none none reverse"
-    },
-    opacity: 0,
-    y: 30,
-    duration: 0.8
-});
-
-gsap.from("#hobbies .hobby", {  // More specific selector
-    scrollTrigger: {
-        trigger: "#hobbies",
-        start: "top 60%",
-        toggleActions: "play none none reverse"
-    },
-    opacity: 0,
-    y: 30,
-    duration: 0.8,
-    stagger: 0.2
-});
-
-// Add smooth scrolling for navigation links
-document.querySelectorAll('header a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetSection = document.querySelector(targetId);
-        if (targetSection) {
-            window.scrollTo({
-                top: targetSection.offsetTop,
-                behavior: 'smooth'
-            });
-        } else {
-            console.error(`Target section "${targetId}" not found.`);
-        }
+  // Initialize GSAP and ScrollTrigger
+  gsap.registerPlugin(ScrollTrigger);
+  
+  // Header scroll effect
+  window.addEventListener('scroll', function() {
+    const header = document.getElementById('header');
+    if (window.scrollY > 100) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  });
+  
+  // Back to top button
+  const backToTopBtn = document.getElementById('backToTop');
+  
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 500) {
+      backToTopBtn.classList.add('visible');
+    } else {
+      backToTopBtn.classList.remove('visible');
+    }
+  });
+  
+  backToTopBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
     });
-});
+  });
+  
+  // Section animations
+  const sections = document.querySelectorAll('section');
+  
+  sections.forEach(section => {
+    gsap.fromTo(
+      section.querySelector('.section-title'),
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+          toggleActions: "play none none none"
+        }
+      }
+    );
+  });
+  
+  // Skills animation
+  const skillCards = document.querySelectorAll('.skill-card');
+  
+  skillCards.forEach((card, index) => {
+    gsap.fromTo(
+      card,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        delay: index * 0.1,
+        scrollTrigger: {
+          trigger: '#skills',
+          start: "top 70%",
+          toggleActions: "play none none none"
+        }
+      }
+    );
+  });
+  
+  // Portfolio animation
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+  
+  portfolioItems.forEach((item, index) => {
+    gsap.fromTo(
+      item,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        delay: index * 0.2,
+        scrollTrigger: {
+          trigger: '#portfolio',
+          start: "top 70%",
+          toggleActions: "play none none none"
+        }
+      }
+    );
+  });
+  
+  // Hobbies animation
+  const hobbyCards = document.querySelectorAll('.hobby-card');
+  
+  hobbyCards.forEach((card, index) => {
+    gsap.fromTo(
+      card,
+      { opacity: 0, y: 50 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        delay: index * 0.1,
+        scrollTrigger: {
+          trigger: '#hobbies',
+          start: "top 70%",
+          toggleActions: "play none none none"
+        }
+      }
+    );
+  });
+  
+  // Smooth scroll for navigation links
+  document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const target = document.querySelector(this.getAttribute('href'));
+      
+      window.scrollTo({
+        top: target.offsetTop - 80,
+        behavior: 'smooth'
+      });
+    });
+  });
