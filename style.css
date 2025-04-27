@@ -1,45 +1,160 @@
+/* Theme Variables */
+.theme-dark {
+  --bg-primary: #121212;
+  --bg-secondary: #1A1A1A;
+  --bg-tertiary: #2A2A2A;
+  --text-primary: #F5F5F5;
+  --text-secondary: #BBBBBB;
+  --accent: #ff3b3b;
+  --accent-hover: #ff5252;
+  --accent-transparent: rgba(255, 59, 59, 0.1);
+}
 
-    :root {
-      --bg-primary: #121212;
-      --bg-secondary: #1A1A1A;
-      --bg-tertiary: #2A2A2A;
-      --text-primary: #F5F5F5;
-      --text-secondary: #BBBBBB;
-      --accent: #ff3b3b;
-      --accent-hover: #ff5252;
-      --accent-transparent: rgba(255, 59, 59, 0.1);
-    }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-    }
-    
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-    
-    /* Header and Navigation */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 10%;
-      background: rgba(18, 18, 18, 0.9);
-      backdrop-filter: blur(10px);
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      transition: all 0.3s ease;
-    }
+.theme-light {
+  --bg-primary: #F5F5F5;
+  --bg-secondary: #E8E8E8;
+  --bg-tertiary: #DADADA;
+  --text-primary: #333333;
+  --text-secondary: #555555;
+  --accent: #3B82F6;
+  --accent-hover: #2563EB;
+  --accent-transparent: rgba(59, 130, 246, 0.1);
+}
+
+.theme-royal {
+  --bg-primary: #13111C;
+  --bg-secondary: #1E1A2B;
+  --bg-tertiary: #2D2640;
+  --text-primary: #F5F5F5;
+  --text-secondary: #BBBBBB;
+  --accent: #8B5CF6;
+  --accent-hover: #7C3AED;
+  --accent-transparent: rgba(139, 92, 246, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Theme Toggle Styles */
+.theme-toggle {
+  position: relative;
+  margin-right: 1rem;
+}
+
+#theme-btn {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease;
+}
+
+#theme-btn:hover {
+  background: var(--accent-transparent);
+  color: var(--accent);
+}
+
+.theme-options {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--bg-tertiary);
+  border-radius: 10px;
+  padding: 0.8rem;
+  width: 150px;
+  margin-top: 0.5rem;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.theme-toggle.active .theme-options {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.5rem;
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: var(--text-primary);
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+  text-align: left;
+}
+
+.theme-option:hover {
+  background: var(--bg-secondary);
+}
+
+.theme-option.active {
+  background: var(--accent-transparent);
+  color: var(--accent);
+}
+
+.color-preview {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: block;
+}
+
+.color-preview.dark {
+  background: linear-gradient(135deg, #121212 50%, #ff3b3b 50%);
+}
+
+.color-preview.light {
+  background: linear-gradient(135deg, #F5F5F5 50%, #3B82F6 50%);
+}
+
+.color-preview.royal {
+  background: linear-gradient(135deg, #13111C 50%, #8B5CF6 50%);
+}
+
+/* Header and Navigation */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 10%;
+  background: rgba(var(--bg-primary-rgb, 18, 18, 18), 0.9);
+  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.3s ease, background-color 0.4s ease;
+}
     
     header.scrolled {
       padding: 1rem 10%;
@@ -882,3 +997,27 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* Fix for header in LIGHT THEME */
+body.theme-light header {
+  background-color: white;
+}
+
+body.theme-light header .logo,
+body.theme-light nav a {
+  color: #2563EB; /* Blue color for text */
+}
+
+body.theme-light nav a:hover {
+  color: #1D4ED8;
+}
+
+/* Fix for HERO background in LIGHT THEME */
+body.theme-light .hero {
+  background: white !important;
+}
+
+/* Optional: Remove dark gradient overlay from images if present */
+body.theme-light .portfolio-img::after {
+  background: none;
+}

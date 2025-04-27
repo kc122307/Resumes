@@ -1,6 +1,56 @@
 // Initialize GSAP and ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
+// Theme Switching Functionality
+document.addEventListener('DOMContentLoaded', () => {
+  const themeBtn = document.getElementById('theme-btn');
+  const themeToggle = document.querySelector('.theme-toggle');
+  const themeOptions = document.querySelectorAll('.theme-option');
+  
+  // Load saved theme from localStorage
+  const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
+  document.body.className = `theme-${savedTheme}`;
+  
+  // Update active state on theme options
+  updateActiveTheme(savedTheme);
+  
+  // Toggle theme options dropdown
+  themeBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    themeToggle.classList.toggle('active');
+  });
+  
+  // Handle theme selection
+  themeOptions.forEach(option => {
+    option.addEventListener('click', () => {
+      const theme = option.getAttribute('data-theme');
+      document.body.className = `theme-${theme}`;
+      localStorage.setItem('portfolio-theme', theme);
+      
+      updateActiveTheme(theme);
+      themeToggle.classList.remove('active');
+    });
+  });
+  
+  // Close theme dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!themeToggle.contains(e.target)) {
+      themeToggle.classList.remove('active');
+    }
+  });
+  
+  // Update active theme indicator
+  function updateActiveTheme(theme) {
+    themeOptions.forEach(option => {
+      if (option.getAttribute('data-theme') === theme) {
+        option.classList.add('active');
+      } else {
+        option.classList.remove('active');
+      }
+    });
+  }
+});
+
 // Debounced Scroll Event
 let scrollTimeout;
 window.addEventListener('scroll', () => {
