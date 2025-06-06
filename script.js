@@ -106,6 +106,7 @@ function animateOnScroll(elements, triggerSelector, delayStep = 0.1, duration = 
   });
 }
 
+
 // Animate section titles
 document.querySelectorAll('section').forEach(section => {
   const title = section.querySelector('.section-title');
