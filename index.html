@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kunal Chandel | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Ensure Font Awesome is loaded for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   <link rel="stylesheet" href="style.css">
 </head>
@@ -17,6 +18,7 @@
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#portfolio">Projects</a>
+      <a href="#videos">Videos</a>
       <a href="#hobbies">Hobbies</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -58,7 +60,8 @@
     </div>
   </div>
   <div class="right">
-    <img src="images/MyImage.jpg" alt="Kunal Chandel Profile Picture" loading="lazy">
+    <!-- PATH FIXED: Using "images/MyImage.jpg" (removed the leading ./) -->
+    <img src="images/Image.jpg" alt="Kunal Chandel Profile Picture" loading="lazy">
   </div>
 </div>
 
@@ -82,12 +85,12 @@
       <h2>Education</h2>
       <ul>
         <li>
-          <strong>Bachelor of Science in Computer Science</strong>
-          <p>XYZ University, 2024</p>
+          <strong>Bachelor of Computer Science (Expected 2026)</strong>
+          <p>VTU University, Karnataka</p>
         </li>
         <li>
-          <strong>High School Diploma</strong>
-          <p>ABC High School, 2020</p>
+          <strong>10th Standard</strong>
+          <p>SATYA MODEL HIGH SCHOOL BILLAWAR, 2019-2020</p>
         </li>
       </ul>
     </div>
@@ -155,90 +158,131 @@
 </section>
 
 <section id="portfolio">
-  <h1 class="section-title">Projects</h1>
-  <div class="portfolio-container">
-    <div class="portfolio-item">
-      <div class="portfolio-img">
-        <img src="/api/placeholder/800/500" alt="Modern Wiki Chat">
+  <h1 class="section-title">Featured Projects</h1>
+  
+  <!-- PROJECT SLIDER CONTAINER -->
+  <div class="slider-container">
+    <div class="slide">
+      
+      <!-- Project Item 1: Ai-Goal Tracker (KAIGT) -->
+      <div class="item" style="background-image: url(images/AiGoal.png);">
+          <div class="content">
+              <div class="name">Ai-Goal Tracker (KAIGT)</div>
+              <div class="des">An intelligent goal-tracking application that uses AI to provide personalized suggestions and actionable plans.</div>
+              <a href="https://github.com/kc122307/KAIGT" class="project-link-slider" target="_blank">View Project</a>
+          </div>
       </div>
-      <div class="portfolio-content">
-        <h2>Modern Wiki Chat</h2>
-        <p>Modern Wiki Chat is an interactive chatbot that fetches information from Wikipedia and responds intelligently. It also provides a personalized assistant feature.</p>
-        <a href="https://github.com/kc122307/ChatBotUsingWikipedia" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
+      
+      <!-- Project Item 2: Research Management System -->
+      <div class="item" style="background-image: url(images/journal.png);">
+          <div class="content">
+              <div class="name">Research Management System</div>
+              <div class="des">Admin dashboard to manage professors, journals, and conferences, developed with PHP, JS, and MySQL.</div>
+              <a href="https://github.com/kc122307/Research-Management-System-details" class="project-link-slider" target="_blank">View Project</a>
+          </div>
       </div>
+      
+      <!-- Project Item 3: Modern Short-Video Platform -->
+      <div class="item" style="background-image: url(images/Reel_app.png);">
+          <div class="content">
+              <div class="name">Modern Short-Video Platform</div>
+              <div class="des">A full-stack, short-video sharing platform built with the MERN stack, featuring secure authentication and dynamic feeds.</div>
+              <a href="https://github.com/kc122307/Reel_style" class="project-link-slider" target="_blank">View Project</a>
+          </div>
+      </div>
+      
+      <!-- Project Item 4: Chat-App -->
+      <div class="item" style="background-image: url(images/Chat_app.png);">
+          <div class="content">
+              <div class="name">Chat-App</div>
+              <div class="des">Full-stack chat application with real-time messaging, group chat, and WebRTC-based video conferencing.</div>
+              <a href="https://github.com/kc122307/Chat_App" class="project-link-slider" target="_blank">View Project</a>
+          </div>
+      </div>
+      
     </div>
-    
-    <div class="portfolio-item">
-      <div class="portfolio-img">
-        <img src="/images/journal.png" alt="Research Details Management System">
-      </div>
-      <div class="portfolio-content">
-        <h2>Research Details Management</h2>
-        <p>A platform designed to assist academic institutions and research organizations with managing their research projects, resources, and data efficiently. Features include publication tracking and analysis tools.</p>
-        <a href="#" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-      </div>
-    </div>
-    
-    <div class="portfolio-item">
-      <div class="portfolio-img">
-        <img src="/images/Translator.png" alt="Language-Translator">
-      </div>
-      <div class="portfolio-content">
-        <h2>Language-Translator</h2>
-        <p>A multi-functional language translation tool built with React, TypeScript, and Tesseract.js, featuring OCR for image-based text extraction and seamless translation via the MyMemory API.</p>
-        <a href="https://github.com/kc122307/Translator" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-      </div>
+
+    <!-- Slider Controls -->
+    <div class="button">
+        <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+        <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
     </div>
   </div>
+  <!-- END PROJECT SLIDER CONTAINER -->
+  
+  <!-- Action Buttons for all projects -->
+  <div class="portfolio-actions">
+    <!-- Links to projects.html -->
+    <a href="projects.html" class="all-projects-btn">
+      <i class="fas fa-layer-group"></i>
+      View All Projects
+    </a>
+    <a href="https://github.com/kc122307" class="all-projects-btn" target="_blank">
+      <i class="fab fa-github"></i>
+      All Projects on GitHub
+    </a>
+  </div>
+
 </section>
-</div>
     
-    <!-- More Projects Section (Initially Hidden) -->
-    <div class="more-projects" id="moreProjects" style="display: none;">
-      <div class="portfolio-container">
-        <div class="portfolio-item">
-          <div class="portfolio-img">
-            <img src="/api/placeholder/800/500" alt="Task Manager App">
-          </div>
-          <div class="portfolio-content">
-            <h2>Task Manager App</h2>
-            <p>A full-stack task management application built with React and Node.js, featuring user authentication, real-time updates, and drag-and-drop functionality.</p>
-            <a href="https://github.com/kc122307/TaskManager" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-        
-        <div class="portfolio-item">
-          <div class="portfolio-img">
-            <img src="/api/placeholder/800/500" alt="Weather Dashboard">
-          </div>
-          <div class="portfolio-content">
-            <h2>Weather Dashboard</h2>
-            <p>A responsive weather application using OpenWeatherMap API, featuring location-based forecasts, interactive charts, and customizable widgets.</p>
-            <a href="https://github.com/kc122307/WeatherDashboard" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
-        
-        <div class="portfolio-item">
-          <div class="portfolio-img">
-            <img src="/api/placeholder/800/500" alt="E-commerce Platform">
-          </div>
-          <div class="portfolio-content">
-            <h2>E-commerce Platform</h2>
-            <p>A modern e-commerce solution with shopping cart, payment integration, inventory management, and admin dashboard built with React and Express.</p>
-            <a href="https://github.com/kc122307/EcommercePlatform" class="project-link">View Project <i class="fas fa-arrow-right"></i></a>
-          </div>
-        </div>
+<!-- NEW VIDEOS SECTION -->
+<section id="videos">
+  <h1 class="section-title">Top Videos & Tutorials</h1>
+  <div class="video-container">
+    
+    <!-- Video Card 1 -->
+    <div class="video-card">
+      <div class="video-thumbnail">
+        <a href="https://www.youtube.com/watch?v=Pt7D6Vsbga4&t=36s" target="_blank" aria-label="Watch Video 1">
+          <img src="images/Reel_app.png" alt="Video Thumbnail 1">
+          <i class="fab fa-youtube video-play-icon"></i>
+        </a>
+      </div>
+      <div class="video-content">
+        <h3>Building a TikTok-Style Reels App with MERN Stack</h3>
+        <p>A step-by-step tutorial on structuring a robust backend API, covering authentication and deployment best practices.</p>
+      </div>
+    </div>
+
+    <!-- Video Card 2 -->
+    <div class="video-card">
+      <div class="video-thumbnail">
+        <a href="https://www.youtube.com/watch?v=WN_t2TJhDbk&t=13s" target="_blank" aria-label="Watch Video 2">
+          <img src="images/Meme.png" alt="Video Thumbnail 2">
+          <i class="fab fa-youtube video-play-icon"></i>
+        </a>
+      </div>
+      <div class="video-content">
+        <h3>Create & Discover Memes in Seconds:(Meme-K)</h3>
+        <p>Meme-K is the fast, fun, and AI-powered meme generator that lets you create viral content with custom images and smart text suggestions.</p>
+      </div>
+    </div>
+
+    <!-- Video Card 3 -->
+    <div class="video-card">
+      <div class="video-thumbnail">
+        <a href="https://www.youtube.com/watch?v=VIDEO_ID_3" target="_blank" aria-label="Watch Video 3">
+          <!-- FIX: Removed the broken external link, using local placeholder image -->
+          <img src="images/placeholder_video.png" alt="Video Placeholder Thumbnail">
+          <i class="fab fa-youtube video-play-icon"></i>
+        </a>
+      </div>
+      <div class="video-content">
+        <h3>Introduction to Python for Data Science</h3>
+        <p>Get started with Python's core libraries (Pandas, NumPy) for data manipulation and basic analysis tasks.</p>
       </div>
     </div>
     
-    <!-- Action Buttons -->
-    <div class="portfolio-actions">
-      
-      <a href="https://github.com/kc122307" class="all-projects-btn" target="_blank">
-        <i class="fab fa-github"></i>
-        All Projects on GitHub
-      </a>
-    </div>
+  </div>
+  
+  <div class="portfolio-actions">
+    <a href="https://www.youtube.com/@CurlyBracesClub" class="all-projects-btn" target="_blank">
+      <i class="fab fa-youtube"></i>
+      View My Channel
+    </a>
+  </div>
+</section>
+<!-- END NEW VIDEOS SECTION -->
     
 <section id="hobbies">
   <h1 class="section-title">My Hobbies</h1>
@@ -308,10 +352,9 @@
   <div class="footer-content">
     <div class="footer-logo">KC</div>
     <div class="social-links">
-      <a href="https://github.com/kc122307"><i class="fab fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/kunal-chandel123/>"><i class="fab fa-linkedin"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="https://github.com/kc122307" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/kunal-chandel123/" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="YOUR_YOUTUBE_CHANNEL_URL" target="_blank"><i class="fab fa-youtube"></i></a>
     </div>
   </div>
   <div class="copyright">
@@ -326,4 +369,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="script.js"></script>
+</body>
 </html>

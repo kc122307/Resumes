@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Projects | Kunal Chandel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <!-- Link to the main style sheet for theme consistency -->
+  <link rel="stylesheet" href="style.css">
+  
+  <style>
+    /* Ensure the body uses the current theme */
+    body {
+        background-color: var(--bg-primary);
+        color: var(--text-primary);
+        min-height: 100vh;
+    }
+
+    /* CUSTOM HEADER FOR PROJECTS PAGE ONLY */
+    .projects-header {
+      padding: 1.5rem 10%;
+      background: var(--bg-secondary);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .projects-header .logo {
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--text-primary);
+    }
+    
+    .projects-header .back-btn {
+      padding: 0.5rem 1rem;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      background: transparent;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .projects-header .back-btn:hover {
+        background: var(--accent-transparent);
+        transform: translateY(-2px);
+    }
+    /* END CUSTOM HEADER */
+
+
+    /* Styles for the project grid container */
+    .portfolio-container-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+        margin-top: 3rem;
+        padding-bottom: 3rem;
+    }
+
+    /* Style the project cards to match the skill/video cards from style.css */
+    .portfolio-item {
+        background: var(--bg-tertiary);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .portfolio-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+    
+    .portfolio-img {
+        position: relative;
+        height: 0;
+        padding-bottom: 56.25%; /* 16:9 Aspect Ratio for image area */
+        overflow: hidden;
+    }
+
+    .portfolio-img img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    .portfolio-item:hover .portfolio-img img {
+        transform: scale(1.05);
+    }
+
+    .portfolio-content {
+        padding: 1.5rem;
+        flex-grow: 1; 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .portfolio-content h2 {
+        color: var(--accent);
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .portfolio-content p {
+        color: var(--text-secondary);
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .project-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+
+    .project-link:hover {
+        color: var(--accent-hover);
+    }
+
+    /* Responsive adjustments for the custom header */
+    @media (max-width: 768px) {
+      .projects-header {
+        padding: 1rem 5%;
+      }
+    }
+  </style>
+
+</head>
+
+<body class="theme-dark">
+  
+  <!-- Custom header for navigation back to the main page -->
+  <header class="projects-header">
+    <div class="logo">KC | All Projects</div>
+    <a href="index.html#portfolio" class="back-btn">
+      <i class="fas fa-arrow-left"></i>
+      Back to Portfolio
+    </a>
+  </header>
+
+
+  <section id="portfolio" style="padding: 4rem 10%; min-height: 80vh;">
+    <h1 class="section-title" style="margin-bottom: 1rem;">Full Project Listing</h1>
+
+    <div class="portfolio-container-grid">
+      
+      <!-- Project 1 (Wiki Chat) -->
+      <div class="portfolio-item">
+        <div class="portfolio-img">
+          <img src="images/Chat.png" alt="Modern Wiki Chat">
+        </div>
+        <div class="portfolio-content">
+          <h2>Modern Wiki Chat</h2>
+          <p>Interactive chatbot that fetches information from Wikipedia with a personalized assistant feature.</p>
+          <a href="https://github.com/kc122307/ChatBotUsingWikipedia" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Project 2 (Research Details Management System) -->
+    
+
+      <!-- Project 3 (Language-Translator) -->
+      <div class="portfolio-item">
+        <div class="portfolio-img">
+          <img src="/images/Translator.png" alt="Language-Translator">
+        </div>
+        <div class="portfolio-content">
+          <h2>Language-Translator</h2>
+          <p>React + TypeScript tool with OCR (Tesseract.js) and MyMemory API for translations.</p>
+          <a href="https://github.com/kc122307/Translator" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+     <div class="portfolio-item">
+    <div class="portfolio-img">
+        <img src="images/Flight.png" alt="KC AIRWAYS Airline Management System">
+    </div>
+    <div class="portfolio-content">
+        <h2>KC AIRWAYS - Airline Management System</h2>
+        <p>
+            **Full-stack desktop application** (Java/Swing + MySQL) for managing Flights, Passengers, Ticket Bookings, and Cancellations.
+        </p>
+        <a href="https://github.com/kc122307/Simple_AirLinesusing_Java" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+    </div>
+</div>
+
+      <!-- Project 5 (Weather Dashboard) -->
+      <div class="portfolio-item">
+        <div class="portfolio-img">
+          <img src="images/Weather_app.png" alt="Weather Dashboard">
+        </div>
+        <div class="portfolio-content">
+          <h2>Weather Dashboard</h2>
+          <p>Responsive app using OpenWeatherMap API, interactive charts, and widgets.</p>
+          <a href="https://github.com/kc122307/Weather-app" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      
+      
+      <!-- Project 7 (Custom Meme Generator with AI Captions) -->
+      <div class="portfolio-item">
+        <div class="portfolio-img">
+          <img src="/images/Meme.png" alt="Custom Meme Generator with AI Captions">
+        </div>
+        <div class="portfolio-content">
+          <h2>Custom Meme Generator with AI Captions</h2>
+          <p>Create, customize, and download memes with AI caption suggestions, random meme generator, uploads, and rich text styling.</p>
+          <a href="https://github.com/kc122307/Meme-Generator" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Project 8 (Job-Portal App - MERN) -->
+      <div class="portfolio-item">
+        <div class="portfolio-img">
+          <img src="/images/JobPortal.png" alt="Job-Portal App (MERN)">
+        </div>
+        <div class="portfolio-content">
+          <h2>Job-Portal App (MERN)</h2>
+          <p>Job platform to discover openings, apply online, and allow companies to post jobs. Built with the MERN stack.</p>
+          <a href="https://github.com/kc122307/Job-portal" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Add more projects as needed -->
+    </div>
+
+    <!-- Games Subsection -->
+    <h1 class="section-title" style="margin-top: 2rem;">Games</h1>
+    <div class="portfolio-container-grid">
+      <!-- Game 1 (FlipFlop Bird – Enhanced Edition) -->
+      <div class="portfolio-item">
+        <div class="portfolio-img">
+          <img src="images/PingPong.png" alt="FlipFlop Bird – Enhanced Edition">
+        </div>
+        <div class="portfolio-content">
+          <h2>FlipFlop Bird – Enhanced Edition</h2>
+          <p>Modern Flappy Bird remake with modes, themes, power-ups, combo scoring, particles, responsive canvas, pause/resume, and high scores.</p>
+          <a href="https://github.com/kc122307/SimpleFlipFlop" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Game 2 (Ultimate Snake Game) -->
+      <div class="portfolio-item">
+        <div class="portfolio-img">
+          <img src="images/Snake.png" alt="Ultimate Snake Game">
+        </div>
+        <div class="portfolio-content">
+          <h2>Ultimate Snake Game</h2>
+          <p>Multi-level Snake with difficulty modes, themes, power-ups, particles, responsive controls, sounds, and high score tracking.</p>
+          <a href="https://github.com/kc122307/Snake-Game" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Game 3 (Cosmic Defender - Retro Arcade Shooter) -->
+      <div class="portfolio-item">
+        <div class="portfolio-img">
+          <img src="/images/Retro.png" alt="Cosmic Defender - Retro Arcade Shooter">
+        </div>
+        <div class="portfolio-content">
+          <h2>Cosmic Defender - Retro Arcade Shooter</h2>
+          <p>Vintage-inspired space defense with CRT effects, parallax starfield, HUD, power-ups, and progressive difficulty.</p>
+          <a href="https://github.com/kc122307/Retro-Game-.git" class="project-link" target="_blank">View Project <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Moved the portfolio-actions button set inside the main section for cleaner layout -->
+    <div class="portfolio-actions" style="margin-top: 2rem;">
+      <a href="index.html#portfolio" class="all-projects-btn">
+        <i class="fas fa-arrow-left"></i>
+        Back to Featured Projects
+      </a>
+      <a href="https://github.com/kc122307" class="all-projects-btn" target="_blank">
+        <i class="fab fa-github"></i>
+        All Projects on GitHub
+      </a>
+    </div>
+  </section>
+
+  <!-- The footer is kept simple to match the main site -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">KC</div>
+      <div class="social-links">
+        <a href="https://github.com/kc122307" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/kunal-chandel123/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="YOUR_YOUTUBE_CHANNEL_URL" target="_blank"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 Kunal Chandel | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </a>
+
+  <!-- Keeping script links for theme and scroll logic -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

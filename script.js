@@ -1,55 +1,76 @@
 // Initialize GSAP and ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
-// Theme Switching Functionality
+// --- SLIDER LOGIC ---
 document.addEventListener('DOMContentLoaded', () => {
-  const themeBtn = document.getElementById('theme-btn');
-  const themeToggle = document.querySelector('.theme-toggle');
-  const themeOptions = document.querySelectorAll('.theme-option');
-  
-  // Load saved theme from localStorage
-  const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
-  document.body.className = `theme-${savedTheme}`;
-  
-  // Update active state on theme options
-  updateActiveTheme(savedTheme);
-  
-  // Toggle theme options dropdown
-  themeBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    themeToggle.classList.toggle('active');
-  });
-  
-  // Handle theme selection
-  themeOptions.forEach(option => {
-    option.addEventListener('click', () => {
-      const theme = option.getAttribute('data-theme');
-      document.body.className = `theme-${theme}`;
-      localStorage.setItem('portfolio-theme', theme);
-      
-      updateActiveTheme(theme);
-      themeToggle.classList.remove('active');
-    });
-  });
-  
-  // Close theme dropdown when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!themeToggle.contains(e.target)) {
-      themeToggle.classList.remove('active');
+    // Check if slider elements exist before attaching listeners
+    const nextButton = document.querySelector('#portfolio .next');
+    const prevButton = document.querySelector('#portfolio .prev');
+    const slide = document.querySelector('#portfolio .slide');
+
+    if (nextButton && prevButton && slide) {
+        // Next button moves the first item to the end
+        nextButton.addEventListener('click', function() {
+            let items = document.querySelectorAll('#portfolio .slide .item');
+            slide.appendChild(items[0]);
+        });
+
+        // Prev button moves the last item to the beginning
+        prevButton.addEventListener('click', function() {
+            let items = document.querySelectorAll('#portfolio .slide .item');
+            slide.prepend(items[items.length - 1]);
+        });
     }
-  });
-  
-  // Update active theme indicator
-  function updateActiveTheme(theme) {
-    themeOptions.forEach(option => {
-      if (option.getAttribute('data-theme') === theme) {
-        option.classList.add('active');
-      } else {
-        option.classList.remove('active');
-      }
+
+    // --- THEME SWITCHING FUNCTIONALITY ---
+    const themeBtn = document.getElementById('theme-btn');
+    const themeToggle = document.querySelector('.theme-toggle');
+    const themeOptions = document.querySelectorAll('.theme-option');
+    
+    // Load saved theme from localStorage
+    const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
+    document.body.className = `theme-${savedTheme}`;
+    
+    // Update active state on theme options
+    updateActiveTheme(savedTheme);
+    
+    // Toggle theme options dropdown
+    themeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        themeToggle.classList.toggle('active');
     });
-  }
+    
+    // Handle theme selection
+    themeOptions.forEach(option => {
+        option.addEventListener('click', () => {
+            const theme = option.getAttribute('data-theme');
+            document.body.className = `theme-${theme}`;
+            localStorage.setItem('portfolio-theme', theme);
+            
+            updateActiveTheme(theme);
+            themeToggle.classList.remove('active');
+        });
+    });
+    
+    // Close theme dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!themeToggle.contains(e.target)) {
+            themeToggle.classList.remove('active');
+        }
+    });
+    
+    // Update active theme indicator
+    function updateActiveTheme(theme) {
+        themeOptions.forEach(option => {
+            if (option.getAttribute('data-theme') === theme) {
+                option.classList.add('active');
+            } else {
+                option.classList.remove('active');
+            }
+        });
+    }
 });
+
 
 // Debounced Scroll Event
 let scrollTimeout;
@@ -128,9 +149,9 @@ document.querySelectorAll('section').forEach(section => {
   }
 });
 
-// Animate skills, portfolio, hobbies
+// Animate skills, hobbies, and videos
 animateOnScroll(document.querySelectorAll('.skill-card'), '#skills');
-animateOnScroll(document.querySelectorAll('.portfolio-item'), '#portfolio', 0.2);
+animateOnScroll(document.querySelectorAll('.video-card'), '#videos', 0.2); 
 animateOnScroll(document.querySelectorAll('.hobby-card'), '#hobbies');
 
 // Smooth scroll for nav links
