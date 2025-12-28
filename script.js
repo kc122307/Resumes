@@ -31,6 +31,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
     document.body.className = `theme-${savedTheme}`;
     
+    // Add bg-gif class if dark, royal, or light theme is selected
+    if (savedTheme === 'dark' || savedTheme === 'royal' || savedTheme === 'light') {
+        document.body.classList.add('bg-gif');
+    }
+    
     // Update active state on theme options
     updateActiveTheme(savedTheme);
     
@@ -44,7 +49,15 @@ document.addEventListener('DOMContentLoaded', () => {
     themeOptions.forEach(option => {
         option.addEventListener('click', () => {
             const theme = option.getAttribute('data-theme');
+            // Remove any existing bg-gif class before setting new theme
+            document.body.classList.remove('bg-gif');
             document.body.className = `theme-${theme}`;
+            
+            // Add bg-gif class if dark, royal, or light theme is selected
+            if (theme === 'dark' || theme === 'royal' || theme === 'light') {
+                document.body.classList.add('bg-gif');
+            }
+            
             localStorage.setItem('portfolio-theme', theme);
             
             updateActiveTheme(theme);
